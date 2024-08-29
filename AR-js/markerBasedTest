@@ -8,8 +8,9 @@
 <a-scene preload="auto"; embedded arjs>
         <a-marker preset="hiro">
             <a-assets>
-              <a-asset-item id="model" src="model.gltf" response-type="arraybuffer"></a-asset-item>
+              <a-asset-item id="model" src="clouds above texas.glb" response-type="arraybuffer"></a-asset-item>
             </a-assets>
+            <a-entity gltf-model="#model"></a-entity>
         </a-marker>
     <a-entity camera></a-entity>
 </a-scene>
