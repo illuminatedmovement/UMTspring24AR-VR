@@ -1,36 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR Scene with 3D Model</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.5/aframe/build/aframe-ar.min.js"></script>
-    <style>
-        .arjs-loader {
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .arjs-loader div {
-            text-align: center;
-            font-size: 1.25em;
-            color: white;
-        }
-    </style>
 </head>
+
+    
 <body style="margin: 0; overflow: hidden;">
-    <div class="arjs-loader">
-        <div>Loading, please wait...</div>
-    </div>
 
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: true;" renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false">
         <a-assets>
@@ -39,36 +15,12 @@
         
         <a-marker preset="hiro">
             <a-entity gltf-model="#model" scale="0.1 0.1 0.1" position="0 0 0"></a-entity>
-            <a-box position="0 0.5 0" material="color: yellow;" scale="0.2 0.2 0.2"></a-box>
         </a-marker>
         
         <a-entity camera></a-entity>
     </a-scene>
 
-    <script>
-        const scene = document.querySelector('a-scene');
-        const model = document.querySelector('[gltf-model]');
-        
-        scene.addEventListener('loaded', function () {
-            console.log('Scene loaded');
-            document.querySelector('.arjs-loader').style.display = 'none';
-        });
-        
-        scene.addEventListener('camera-init', function() {
-            console.log('Camera initialized');
-        });
-
-        scene.addEventListener('camera-error', function(error) {
-            console.error('Camera error:', error);
-        });
-
-        model.addEventListener('model-loaded', function() {
-            console.log('3D model loaded successfully');
-        });
-
-        model.addEventListener('model-error', function(error) {
-            console.error('Error loading 3D model:', error);
-        });
-    </script>
+ 
+   
 </body>
 </html>
