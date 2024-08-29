@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Scene with 3D Model</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
-<a-scene embedded arjs>
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+        <a-assets>
+            <a-asset-item id="model" src="clouds_above_texas.glb"></a-asset-item>
+        </a-assets>
+        
         <a-marker preset="hiro">
-            <a-assets>
-              <a-asset-item id="model" src="clouds above texas.glb" response-type="arraybuffer"></a-asset-item>
-            </a-assets>
-            <a-entity gltf-model="#model"></a-entity>
+            <a-entity gltf-model="#model" scale="0.1 0.1 0.1" position="0 0 0"></a-entity>
         </a-marker>
-    <a-entity camera></a-entity>
-</a-scene>
+        
+        <a-entity camera></a-entity>
+    </a-scene>
 </body>
 </html>
